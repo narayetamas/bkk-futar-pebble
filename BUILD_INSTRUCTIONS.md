@@ -2,7 +2,48 @@
 
 Since Pebble is no longer officially supported, you'll need to use community-maintained tools. Here are your options:
 
-## Option 1: CloudPebble (Easiest - No Installation Required)
+## Option 1: GitHub Codespaces (✨ RECOMMENDED - Best Experience!)
+
+**Build in the cloud with everything pre-configured!**
+
+GitHub Codespaces provides a complete Pebble development environment in your browser with zero setup required.
+
+### Quick Start
+
+1. **Open in Codespaces**:
+   - Go to https://github.com/YOUR_USERNAME/bkk-futar-pebble
+   - Click the green "Code" button
+   - Select "Codespaces" tab
+   - Click "Create codespace on claude/initial-repo-review-011CUScUJUMkJA3qYGNWnJyX"
+
+2. **Add Your API Key**:
+   - Edit `src/js/app.js` in the VS Code editor
+   - Replace `YOUR_API_KEY_HERE` on line 9 with your actual BKK API key
+
+3. **Build the App**:
+   ```bash
+   pebble build
+   ```
+
+4. **Test in Emulator** (optional):
+   ```bash
+   pebble install --emulator basalt
+   ```
+
+5. **Download the Build**:
+   - Find `build/pebfutar.pbw` in the file explorer
+   - Right-click → Download
+   - Transfer to your phone and open with Pebble app
+
+### Advantages
+- ✅ Nothing to install locally
+- ✅ Full Pebble SDK pre-configured
+- ✅ VS Code editor in browser
+- ✅ Built-in emulator support
+- ✅ Works on any Mac (including Apple Silicon)
+- ✅ Free for GitHub users (60 hours/month)
+
+## Option 2: CloudPebble (Simple Alternative)
 
 CloudPebble is still maintained by the Rebble community and works in your browser.
 
@@ -19,7 +60,7 @@ CloudPebble is still maintained by the Rebble community and works in your browse
    - Connect your phone with the Rebble Pebble app
    - Click "Install and Run"
 
-## Option 2: Pebble SDK via Docker (Recommended for Mac)
+## Option 3: Pebble SDK via Docker (Good for Local Builds)
 
 The easiest way to use the Pebble SDK on modern Macs is through Docker.
 
@@ -62,7 +103,7 @@ docker run --rm -it -v "$(pwd):/pebble" rebble/pebble-sdk pebble build
 # 4. The app will install automatically
 ```
 
-## Option 3: Install Pebble SDK Natively (Advanced)
+## Option 4: Install Pebble SDK Natively (Advanced)
 
 For native installation on Mac, you'll need older Python and dependencies.
 
@@ -164,10 +205,29 @@ bkk-futar-pebble/
 - **CloudPebble**: https://cloudpebble.net/
 - **Pebble SDK Docker**: https://hub.docker.com/r/rebble/pebble-sdk
 
-## Recommended: CloudPebble or Docker
+## 🎯 Recommendation by Use Case
 
-For most Mac users, I recommend:
-1. **CloudPebble** if you want the easiest option (no local setup)
-2. **Docker** if you want to build locally without SDK installation hassles
+Choose the best option for your needs:
 
-Both methods work great on modern Macs including Apple Silicon (M1/M2/M3).
+1. **GitHub Codespaces** ⭐ - Best overall experience
+   - Full VS Code environment in browser
+   - Emulator support for testing
+   - Perfect for development and debugging
+   - Free for GitHub users (60 hours/month)
+
+2. **CloudPebble** - Quickest for simple builds
+   - Fastest if you just need to build and install
+   - No GitHub account needed
+   - Limited editor features
+
+3. **Docker** - Best for local/offline builds
+   - Build without internet after initial setup
+   - Full control over build process
+   - Requires Docker Desktop
+
+4. **Native SDK** - Only if you need deep integration
+   - Most complex setup
+   - Python 2.7 compatibility issues on modern Macs
+   - Not recommended unless necessary
+
+**For most Mac users (including Apple Silicon), I recommend GitHub Codespaces or CloudPebble.**

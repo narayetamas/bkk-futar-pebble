@@ -3,11 +3,17 @@ PebFUTÁR
 
 Pebble watchapp for tracking public transport in Budapest, Hungary.
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/narayetamas/bkk-futar-pebble?quickstart=1)
+
 Not actively maintained anymore.
 
 ## Updates (2025)
 
 This version has been updated to use the new BKK OpenData FUTÁR API.
+
+### 🚀 Quick Start
+
+**Easiest way to build**: Click the "Open in GitHub Codespaces" badge above to start building in your browser with zero setup!
 
 ### Getting Started
 

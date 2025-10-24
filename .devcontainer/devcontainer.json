@@ -1,0 +1,17 @@
+{
+  "image": "ghcr.io/coredevices/codespaces-pebble:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools"
+      ]
+    }
+  },
+  "postCreateCommand": "pebble sdk install",
+  "forwardPorts": [
+    9000
+  ]
+}
