@@ -4,6 +4,10 @@ var UI = require('ui'),
 
 var appTitle = 'PebFUTÁR';
 
+// BKK FUTÁR API Key - Get your own key from https://opendata.bkk.hu/
+// Replace this with your actual API key
+var BKK_API_KEY = 'YOUR_API_KEY_HERE';
+
 var localization = {
     'en': {
         'error_generic_comm': 'Communication error!',
@@ -81,7 +85,7 @@ function digitsToString(digit) {
 
 var FutarService = function (apiBaseUrl) {
     console.log('SRV: <init>');
-    this.apiBaseUrl = apiBaseUrl || 'http://futar.bkk.hu/bkk-utvonaltervezo-api/ws/otp/api/where/';
+    this.apiBaseUrl = apiBaseUrl || 'https://futar.bkk.hu/api/query/v1/ws/otp/api/where/';
 };
 
 FutarService.prototype.acquireLocation = function (callback) {
@@ -109,8 +113,9 @@ FutarService.prototype.acquireLocation = function (callback) {
 
 FutarService.prototype.getStopsForLocation = function (lat, lon, radius, callback) {
     var svc = this,
-        stopUrl = this.apiBaseUrl + 'stops-for-location.json' +
-        '?lat=' + lat + '&lon=' + lon +
+        stopUrl = this.apiBaseUrl + 'stops-for-location' +
+        '?key=' + BKK_API_KEY +
+        '&lat=' + lat + '&lon=' + lon +
         '&radius=' + radius;
 
     function parseStops(raw) {
@@ -183,7 +188,9 @@ FutarService.prototype.getStopsForLocation = function (lat, lon, radius, callbac
 };
 
 FutarService.prototype.getDeparturesForStop = function(stopId, callback) {
-    var adUrl = this.apiBaseUrl + 'arrivals-and-departures-for-stop/' + stopId + '.json';
+    var adUrl = this.apiBaseUrl + 'arrivals-and-departures-for-stop' +
+        '?key=' + BKK_API_KEY +
+        '&stopId=' + stopId;
 
     function parseDepartures(raw) {
         var d = JSON.parse(raw), data, busTimes = [];
@@ -244,8 +251,9 @@ FutarService.prototype.getDeparturesForStop = function(stopId, callback) {
 };
 
 FutarService.prototype.getTripDetails = function (tripId, callback) {
-    var detailUrl = this.apiBaseUrl + 'trip-details.json' +
-        '?tripId=' + tripId;
+    var detailUrl = this.apiBaseUrl + 'trip-details' +
+        '?key=' + BKK_API_KEY +
+        '&tripId=' + tripId;
 
     function parseStops(raw) {
         var dataObj = JSON.parse(raw),
